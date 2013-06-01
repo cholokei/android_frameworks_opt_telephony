@@ -429,15 +429,15 @@ public class SmsUsageMonitor {
 
             if (mCurrentPatternMatcher != null) {
                 return mCurrentPatternMatcher.getNumberCategory(destAddress);
-            } else {
-                // Generic rule: numbers of 5 digits or less are considered potential short codes
-                Log.e(TAG, "No patterns for \"" + countryIso + "\": using generic short code rule");
-                if (destAddress.length() <= 5) {
-                    return CATEGORY_POSSIBLE_PREMIUM_SHORT_CODE;
-                } else {
-                    return CATEGORY_NOT_SHORT_CODE;
-                }
-            }
+            } //else { by Cholokei - start
+//                // Generic rule: numbers of 5 digits or less are considered potential short codes
+//                Log.e(TAG, "No patterns for \"" + countryIso + "\": using generic short code rule");
+//                if (destAddress.length() <= 5) {
+//                    return CATEGORY_POSSIBLE_PREMIUM_SHORT_CODE;
+//                } else {
+//                    return CATEGORY_NOT_SHORT_CODE;
+//                }
+//            } by Cholokei - end
         }
     }
 
