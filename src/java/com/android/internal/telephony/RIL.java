@@ -1296,9 +1296,11 @@ public class RIL extends BaseCommands implements CommandsInterface {
         RILRequest rr
                 = RILRequest.obtain(RIL_REQUEST_SEND_SMS, result);
 
-        rr.mParcel.writeInt(2);
+        rr.mParcel.writeInt(4);
         rr.mParcel.writeString(smscPDU);
         rr.mParcel.writeString(pdu);
+        rr.mParcel.writeString(Integer.toString(0)); //mCurIndex = 0
+        rr.mParcel.writeString(Integer.toString(1)); //mTotalCnt = 1
 
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
 
