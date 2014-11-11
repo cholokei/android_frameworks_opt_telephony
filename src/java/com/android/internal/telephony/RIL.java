@@ -4631,6 +4631,7 @@ public class RIL extends BaseCommands implements CommandsInterface {
             rr = RILRequest.obtain(RIL_REQUEST_SIM_TRANSMIT_CHANNEL, result);
         }
 
+        rr.mParcel.writeInt(cla);
         rr.mParcel.writeInt(command);
         rr.mParcel.writeInt(channel);
         rr.mParcel.writeString(null);
@@ -4639,7 +4640,7 @@ public class RIL extends BaseCommands implements CommandsInterface {
         rr.mParcel.writeInt(p3);
         rr.mParcel.writeString(data);
         rr.mParcel.writeString(null);
-        rr.mParcel.writeInt(cla);
+        rr.mParcel.writeString(null);
 
         if (RILJ_LOGD) riljLog(rr.serialString() + "> iccExchangeAPDU: "
                 + requestToString(rr.mRequest)
